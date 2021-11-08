@@ -2,7 +2,7 @@
 
 const pokeContainer = document.querySelector(`#container`);
 // Using the first 150 Pokemon (AKA Objects) in the PokeAPI
-const numOfPokemon = 150;
+const numOfPokemon = 898;
 
 // The createPokeCard function creates a new card (AKA Section element) and adds the new card to the webpage/document inside of the div with the id of "container"
 // NOTE: The value/argument that will be passed in for the "pokemon" parameter will be the response received from an Axios request to the PokeAPI
@@ -19,13 +19,22 @@ function createPokeCard(pokemon){
   `;
 }
 
-// The getPokemonData function makes an Axios GET request to the PokeAPI using a specific Pokemon ID/Number then takes the returned data and passes it into the createPokeCard function
+// The getPokemonData function makes an Axios GET request to the PokeAPI using a specific pokemon ID/Number then takes the returned data and passes it into the createPokeCard function
 // NOTE: The argument/value passed into the "id" parameter will be a number created in the loop in the next function (AKA The getPokemon function)
 async function getPokemonData(id){
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-  const pokemonData = await Axios.get(url);
+  const pokemonData = await axios.get(url);
   console.log(pokemonData);
   console.log(pokemonData.data.sprites.front_shiny);
   console.log(pokemonData.data.name);
-  createPokeCard(pokemonData)
+  createPokeCard(pokemonData);
 }
+
+// The getPokemon function loops through all the pokemon IDs and runs/executes the getPokemonData function for each ID
+// NOTE: Using async/await on this function because the code in the getPokemonData function is asynchronous (There is an Axios request in that function)
+async function getPokemon(){
+  for(i = 1; i <= numOfPokemon; i++){
+    await getPokemonData(i);
+  }
+}
+getPokemon();

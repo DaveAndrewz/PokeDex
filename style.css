@@ -3,7 +3,7 @@
   }
   
   body {
-    background-color: #FFCB05;
+    background-color: #050505;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,9 +11,10 @@
   
   h1 {
     font-size: 50px;
-    background-color: #3D7DCA;
-    border: 5px solid #003A70;
-    color: #FFCB05;
+    background-color: #414141;
+    border: 5px solid #FFCB05;
+    filter: drop-shadow(0 0 7px #FFCB05);
+    color: #e2e2e2;
     padding: 10px;
     letter-spacing: 5px;
     border-radius: 25px;
@@ -26,21 +27,23 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    filter: drop-shadow(0 0 5px #FFCB05);
   }
   
   .pokemon {
-    background-color: #3D7DCA;
+    background-color: #303030;
     width: 175px;
     padding: 20px;
     margin: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 2px solid #FFCB05;
     border-radius: 20px;
   }
   
   .img-container {
-    background-color: #003A70;
+    background-color: #5d5d5d;
     width: 120px;
     height: 120px;
     padding: 10px;
@@ -50,6 +53,6 @@
   }
   
   .name {
-    color: #003A70;
+    color: #e2e2e2;
     margin-bottom: 0;
   }
